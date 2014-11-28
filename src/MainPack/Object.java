@@ -179,5 +179,23 @@ public class Object {
 		pointer++;
 		return array[pointer - 1];
 	}
+	
+	public String toString()
+	{
+		String bigString = "The size is " + size 
+				+ ", the index is " + index 
+				+ ", the objects are: \n";
+		for(int i = 0; i < index; i++)
+			bigString = bigString + array[i] + "\n";
+		return bigString;
+	}
+	
+	public boolean equals(Object arr)
+	{
+		for(int i=0; i < index; i++)
+			if(this.array[i] != arr.array[i])
+				return false;
+		return this.index == arr.index && this.size == arr.size;
+	}
 
 }
