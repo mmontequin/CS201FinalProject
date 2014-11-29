@@ -1,0 +1,50 @@
+0,Milk - 1 gal,1.99,Dean's Foods;USA;11/28/2014,2,
+0,Cinnamon Toast Crunch - 16.2 oz,2.99,General Mills;USA;11/15/2014,4,
+0,Broccoli - per lb,1.80,,0,
+0,Kale (bagged) - 10 oz,2.99,Glory Foods;USA;11/19/2014,0,
+0,Whole Frozen Turkey - per lb,2.99,Empire;USA;11/21/2014,1,
+0,Dasani Water - 24 pk,3.99,Coca Cola;USA;11/01/2014,9,
+0,Frozen corn - 16 oz,0.99,,7,
+0,Four Cheese Rising Crust Pizza,7.99,DiGiorno;USA;10/25/2014,7,
+0,Ground Beef 85% Lean - per lb,4.99,,1,
+0,Frozen Fettucini Alfredo,2.49,Healthy Choice;USA;10/26/2014,7,
+0,Grade A Large Eggs - 1 dozen,1.50,Dutch Farms;USA;11/20/2014,2,
+0,Chips Ahoy! Chocolate Chip Cookies,3.69,Nabisco;USA;11/01/2014,4,
+0,Beef Jerky - 3.25 oz,7.99,Jack Link's;USA;10/14/2014,4,
+0,Honeycrisp Apples - per lb,1.74,,0,
+0,All-Purpose Flour - 5 lb,3.19,Pillsbury;USA;10/30/2014,6,
+0,Greek Yogurt - 5.3 oz cup,1.00,Yoplait;Canada;11/14/2014,2,
+0,Sliced Chicken Breast - per lb,9.99,Boar's Head;USA;11/27/2014,1,
+0,Semi-sweet Chocolate Morsels - 12 oz,2.50,Nestle;Switzerland;10/22/2014,6,
+0,French Vanilla Cake Mix,1.67,Betty Crocker;USA;11/02/2014,6,
+0,Whole Grain Spaghetti - 13.2 oz,1.99,Barilla;Italy;11/05/2014,3,
+0,Whole Weat Bread,2.00,S. Rosen's;USA;11/26/2014,3,
+0,Whole Bean Coffee - 12 oz,7.99,Starbucks;Colombia;10/31/2014,9,
+0,Whole Kernel Golden Sweet Corn,1.00,Del Monte;USA;09/30/2014,5,
+0,Vanilla Toffee Bar Crunch Ice Cream - 1 pint,4.59,Ben & Jerry's;USA;10/01/2014,7,
+0,Medium Grain White Rice - 5 lb,6.99,Goya;Puerto Rico;11/04/2014,3,
+1,Long Sleeve Workwear Shirt,17.49,Carhartt;Honduras;09/24/2014,L,red
+1,Straight Fit Jeans,24.62,Wrangler;Mexico;07/01/2014,32,blue
+1,Scarf,10.00,,,black
+1,Zip Hoodie,22.27,,S,grey
+1,Merino Wool Crew Neck Sweater,43.99,Calvin Klein;China;08/21/2014,M,black
+1,Fleece Jacket,29.97,Columbia;China;02/17/2014,XL,green
+1,Work Pants,19.32,Dickies;Vietnam;03/14/2014,34,black
+1,Fitted Dress Shirt,24.99,Van Heusen;Honduras;04/01/2014,L,blue
+1,Wool Socks - 4 pack,25.95,People's Socks;USA;09/15/2014,,grey
+1,Blazer,225.00,Penguin;China;08/13/2014,L,grey
+1,Boxer Briefs - 5 pack,19.00,Hanes;China;07/29/2014,M,black
+1,Wool Peacoat,49.99,,S,black
+1,Polo Shirt,16.32,US Polo Assn;India;05/31/2014,L,pink
+1,Belt,16.31,Tommy Hilfiger;USA;09/01/2014,,brown
+1,V-Neck Dress with Open Back,100.00,eight sixty;USA;11/13/2014,S,red
+1,Women's Flannel Shirt,30.00,Derek Heart;China;10/16/2014,M,purple
+1,Plus-Size Sweater,34.99,Jessica Simpson;China;09/20/2014,1X,black
+1,Cardigan,13.89,,S,purple
+1,Legging Jeans,29.99,Levi's;USA;10/05/2014,26,blue
+1,Women's Straight Pant,24.90,Lee;China;08/31/2014,14,khaki
+1,Skirt,9.99,,,purple
+1,Leggings,7.98,Energi;China;07/14/2014,,black
+1,Satin Demi Bra,12.99,Maidenform;China;08/20/2014,36D,pink
+1,Jacket,99.00,The North Face;China;10/03/2014,S,green
+1,Earmuffs,9.99,,,white
