@@ -1,3 +1,4 @@
+#category,name/type,price,Manufacturer,quality/size,color
 0,Milk - 1 gal,1.99,Dean's Foods;USA;11/28/2014,2,
 0,Cinnamon Toast Crunch - 16.2 oz,2.99,General Mills;USA;11/15/2014,4,
 0,Broccoli - per lb,1.80,,0,
