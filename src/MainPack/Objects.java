@@ -7,33 +7,33 @@
 
 package MainPack;
 
-public class Object {
+public class Objects {
 	
 	private Object array[];
 	private int MAX_SIZE = 200, index,size,pointer = 0;
 
-	public Object()
+	public Objects()
 	{
 		size = MAX_SIZE;
 		index = 0;
 		array = new Object[size];
 	}
 	
-	public Object(int s)
+	public Objects(int s)
 	{
 		size = s;
 		index = 0;
 		array = new Object[size];
 	}
 	
-	public Object(Object[] anArray, int s, int i)
+	public Objects(Object[] anArray, int s, int i)
 	{
 		size = s;
 		index = i;
 		array = anArray;
 	}
 	
-	public void setArray(Object [] arr)
+	public void setArray(Objects [] arr)
 	{
 		array = arr;
 	}
@@ -78,7 +78,7 @@ public class Object {
 		return array[pos];
 	}
 	
-	public void add(Object obj)
+	public void add(Objects obj)
 	{
 		if(!this.isFull())
 		{
@@ -87,7 +87,7 @@ public class Object {
 		}
 	}
 	
-	public void insert(int pos, Object obj)
+	public void insert(int pos, Objects obj)
 	{
 		int i;
 		if(!this.isFull())
@@ -107,14 +107,14 @@ public class Object {
 		index--;
 	}
 	
-	public void delete(Object obj)
+	public void delete(Objects obj)
 	{
 		int i = this.isThere(obj);
 		if(i >= 0)
 			delete(i);
 	}
 	
-	public int isThere(Object obj)
+	public int isThere(Objects obj)
 	{
 		int i;
 		for(i=0; i<index; i++)
@@ -190,7 +190,7 @@ public class Object {
 		return bigString;
 	}
 	
-	public boolean equals(Object arr)
+	public boolean equals(Objects arr)
 	{
 		for(int i=0; i < index; i++)
 			if(this.array[i] != arr.array[i])
