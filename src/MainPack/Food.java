@@ -15,13 +15,19 @@ public class Food extends Product{
 	
 	public Food()
 	{
+		barCode = 0;
+		price = 0.0;
+		manufacturerInfo = new Manufacturer();
 		name = "no name";
 		quantity = 0.0;
 		quality = 0;
 	}
 	
-	public Food(String n, double q, int ql)
+	public Food(int b, String n, double p, Manufacturer aManufacturer, double q, int ql)
 	{
+		barCode = b;
+		price = p;
+		manufacturerInfo = aManufacturer;
 		name = n;
 		quantity = q;
 		quality = ql;

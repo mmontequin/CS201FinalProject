@@ -78,7 +78,7 @@ public class Objects {
 		return array[pos];
 	}
 	
-	public void add(Objects obj)
+	public void add(Object obj)
 	{
 		if(!this.isFull())
 		{
@@ -87,7 +87,7 @@ public class Objects {
 		}
 	}
 	
-	public void insert(int pos, Objects obj)
+	public void insert(int pos, Object obj)
 	{
 		int i;
 		if(!this.isFull())
@@ -107,14 +107,14 @@ public class Objects {
 		index--;
 	}
 	
-	public void delete(Objects obj)
+	public void delete(Object obj)
 	{
 		int i = this.isThere(obj);
 		if(i >= 0)
 			delete(i);
 	}
 	
-	public int isThere(Objects obj)
+	public int isThere(Object obj)
 	{
 		int i;
 		for(i=0; i<index; i++)
@@ -197,5 +197,5 @@ public class Objects {
 				return false;
 		return this.index == arr.index && this.size == arr.size;
 	}
-
+	
 }

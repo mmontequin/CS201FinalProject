@@ -13,13 +13,19 @@ public class Clothes extends Product{
 	
 	public Clothes()
 	{
+		barCode = 0;
+		price = 0.0;
+		manufacturerInfo = new Manufacturer();
 		type = "no type";
 		size = "no size";
 		color = "no color";
 	}
 	
-	public Clothes(String t, String s, String c)
+	public Clothes(int b, String t, double p, Manufacturer aManufacturer, String s, String c)
 	{
+		barCode = 0;
+		price = 0.0;
+		manufacturerInfo = new Manufacturer();
 		type = t;
 		size = s;
 		color = c;
