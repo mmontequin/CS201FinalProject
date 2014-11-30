@@ -10,12 +10,13 @@ package MainPack;
 public class Product {
 
 	private int barCode;
-	private double price;
+	private double price,tax;
 	
 	public Product()
 	{
 		barCode = 0;
 		price = 0;
+		tax = 0;
 	}
 	
 	public Product(int b, double p)
@@ -34,6 +35,11 @@ public class Product {
 		price = p;
 	}
 	
+	public void setTax(double t)
+	{
+		tax = t;
+	}
+	
 	public int getBarCode()
 	{
 		return barCode;
@@ -44,9 +50,21 @@ public class Product {
 		return price;
 	}
 	
+	public double getTax()
+	{
+		return tax;
+	}
+	
 	public String toString()
 	{
 		return "";
+	}
+	
+	public boolean equals(Product p)
+	{
+		return this.barCode == p.barCode
+				&& this.price == p.price
+				&& this.tax == p.tax;
 	}
 }
 

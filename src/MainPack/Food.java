@@ -10,18 +10,24 @@ package MainPack;
 public class Food extends Product{
 
 	private String name;
-	private double quantity;
+	private double quantity, tax = 1.25;
 	private int quality;
 	
 	public Food()
 	{
+		super.setBarCode(-1);
+		super.setPrice(0.0);
+		super.setTax(tax);
 		name = "no name";
 		quantity = 0.0;
 		quality = 0;
 	}
 	
-	public Food(String n, double q, int ql)
+	public Food(int b, double p, String n, double q, int ql)
 	{
+		super.setBarCode(b);
+		super.setPrice(p);
+		super.setTax(tax);
 		name = n;
 		quantity = q;
 		quality = ql;

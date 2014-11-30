@@ -10,16 +10,23 @@ package MainPack;
 public class Clothes extends Product{
 
 	private String type, size, color;
+	private double tax = 7.5;
 	
 	public Clothes()
 	{
+		super.setBarCode(-1);
+		super.setPrice(0.0);
+		super.setTax(tax);
 		type = "no type";
 		size = "no size";
 		color = "no color";
 	}
 	
-	public Clothes(String t, String s, String c)
+	public Clothes(int b, double p, String t, String s, String c)
 	{
+		super.setBarCode(b);
+		super.setPrice(p);
+		super.setTax(tax);
 		type = t;
 		size = s;
 		color = c;
