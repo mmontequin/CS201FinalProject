@@ -10,7 +10,7 @@ package MainPack;
 public class Food extends Product{
 
 	private String name;
-	private double quantity, tax = 1.25;
+	private double tax = 1.25;
 	private int quality;
 	
 	public Food()
@@ -19,28 +19,21 @@ public class Food extends Product{
 		super.setPrice(0.0);
 		super.setTax(tax);
 		name = "no name";
-		quantity = 0.0;
 		quality = 0;
 	}
 	
-	public Food(int b, double p, String n, double q, int ql)
+	public Food(int b, double p, String n, int q)
 	{
 		super.setBarCode(b);
 		super.setPrice(p);
 		super.setTax(tax);
 		name = n;
-		quantity = q;
-		quality = ql;
+		quality = q;
 	}
 	
 	public void setName(String n)
 	{
 		name = n;
-	}
-	
-	public void setQuantity(double q)
-	{
-		quantity = q;
 	}
 	
 	public void setQuality(int q)
@@ -53,11 +46,6 @@ public class Food extends Product{
 		return name;
 	}
 	
-	public double getQuantity()
-	{
-		return quantity;
-	}
-	
 	public int getQuality()
 	{
 		return quality;
@@ -67,7 +55,6 @@ public class Food extends Product{
 	{
 		return super.toString()
 				+ ", the name is " + name
-				+ ", the quantity is " + quantity
 				+ ", the quality is " + quality;
 	}
 	
@@ -75,7 +62,6 @@ public class Food extends Product{
 	{
 		return super.equals(f) 
 				&& this.name == f.name
-				&& this.quantity == f.quantity
 				&& this.quality == f.quality;
 	}
 }
