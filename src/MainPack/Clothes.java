@@ -22,12 +22,13 @@ public class Clothes extends Product{
 		color = "no color";
 	}
 	
-	public Clothes(int b, double p, String t, String s, String c)
+	public Clothes(int b, double p, String t,Manufacturer m, String s, String c)
 	{
 		super.setBarCode(b);
 		super.setPrice(p);
 		super.setTax(tax);
 		type = t;
+		//manufacturer
 		size = s;
 		color = c;
 	}

@@ -78,7 +78,7 @@ public class Objects {
 		return array[pos];
 	}
 	
-	public void add(Objects obj)
+	public void add(Object obj)
 	{
 		if(!this.isFull())
 		{

@@ -22,12 +22,13 @@ public class Food extends Product{
 		quality = 0;
 	}
 	
-	public Food(int b, double p, String n, int q)
+	public Food(int b, double p, String n,Manufacturer m, int q)
 	{
 		super.setBarCode(b);
 		super.setPrice(p);
 		super.setTax(tax);
 		name = n;
+		//manufacturer
 		quality = q;
 	}
 	
