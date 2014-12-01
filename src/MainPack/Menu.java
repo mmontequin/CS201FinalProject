@@ -45,6 +45,7 @@ public class Menu {
 		//insert the barcode
 		//output the product
 		//go back to pannel
+		Menu.pannel();
 	}
 	
 	public static void sort()
@@ -83,5 +84,45 @@ public class Menu {
 		//**do the stuff to update it
 	}	
 	
+	//costumer
+	public static void costumerPannel()
+	{
+		//1.show food products
+		//2. show clothes products
+		//3. go back
+	}
+	
+	public static void listFood()
+	{
+		//list food
+		//1. sort
+		//2. proceed to checkout
+		//3. go back
+	}
+	
+	public static void listClothes()
+	{
+		//list clothes
+		//1.sort
+		//2.proceed to checkout
+		//3.go back
+	}
+	
+	public static void checkout1()
+	{
+		//enter the barcodes of the products;
+		//enter -1 when you are done
+	}
+	
+	public static void checkout2()
+	{
+		//you have chose the following
+		//output the thing
+		//your total is:
+		//your tax is:
+		//your grand total is:
+		
+		//thanks for shopping with us
+	}
 	
 }
