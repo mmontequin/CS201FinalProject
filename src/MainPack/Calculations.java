@@ -12,7 +12,7 @@ public class Calculations extends Objects{
 
 	private Object arr[] = super.getArray();
 
-	public void sort(int c)
+	public void sort()
 	{
 		Object aux;
 		int min = 999, poz = 0;
@@ -33,7 +33,7 @@ public class Calculations extends Objects{
 		}
 	}
 
-	public void sort(double d)
+	public void sort(double lowToHigh)
 	{
 		Object aux;
 		int poz = 0;
@@ -45,6 +45,25 @@ public class Calculations extends Objects{
 				if(((Product)arr[j]).getPrice() < min)
 				{
 					min = ((Product)arr[j]).getPrice();
+					poz = j;
+				}
+			aux = arr[i];
+			arr[i] = arr[poz];
+			arr[poz] = aux;
+		}
+	}
+	
+	public void sort(int HighToLow)
+	{
+		Object aux;
+		int poz = 0;
+		double max = 0.0;
+		for(int i = 0; i < super.getIndex() - 1; i ++)
+		{
+			for(int j = i; j< super.getIndex(); j++)
+				if(((Product)arr[j]).getPrice() > max)
+				{
+					max = ((Product)arr[j]).getPrice();
 					poz = j;
 				}
 			aux = arr[i];
