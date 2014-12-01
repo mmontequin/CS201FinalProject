@@ -14,9 +14,7 @@ public class Clothes extends Product{
 	
 	public Clothes()
 	{
-		super.setBarCode(-1);
-		super.setPrice(0.0);
-		super.setTax(tax);
+		super(0,0.0,-1);
 		type = "no type";
 		size = "no size";
 		color = "no color";
@@ -24,9 +22,8 @@ public class Clothes extends Product{
 	
 	public Clothes(int b, double p, String t,Manufacturer m, String s, String c)
 	{
-		super.setBarCode(b);
-		super.setPrice(p);
-		super.setTax(tax);
+		
+		super(b,p,7.5);
 		type = t;
 		//manufacturer
 		size = s;

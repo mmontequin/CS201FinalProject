@@ -21,8 +21,10 @@ public class Application {
 		
 		reed.read(array);
 		
-		
-		System.out.println(array.getObject(5));
+		for(int i = 0; i <= 40; i++)
+			if(((Product)array.getObject(i)).getBarCode() < 200)
+				System.out.println(((Food)array.getObject(i)).toString());
+			else System.out.println(((Clothes)array.getObject(i)).toString());
 		
 	}
 }

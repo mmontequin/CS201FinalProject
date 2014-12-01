@@ -15,18 +15,14 @@ public class Food extends Product{
 	
 	public Food()
 	{
-		super.setBarCode(-1);
-		super.setPrice(0.0);
-		super.setTax(tax);
+		super(0,0.0,-1);
 		name = "no name";
 		quality = 0;
 	}
 	
 	public Food(int b, double p, String n,Manufacturer m, int q)
 	{
-		super.setBarCode(b);
-		super.setPrice(p);
-		super.setTax(tax);
+		super(b,p,1.25);
 		name = n;
 		//manufacturer
 		quality = q;

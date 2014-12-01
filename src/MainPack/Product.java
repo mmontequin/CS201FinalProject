@@ -19,10 +19,11 @@ public class Product {
 		tax = 0;
 	}
 	
-	public Product(int b, double p)
+	public Product(int b, double p, double t)
 	{
 		barCode = b;
 		price = p;
+		tax = t;
 	}
 
 	public void setBarCode(int b)
@@ -57,7 +58,9 @@ public class Product {
 	
 	public String toString()
 	{
-		return "";
+		return "The barcode is " + barCode
+				+ ",the price is " + price
+				+ ",the tax is " + tax;
 	}
 	
 	public boolean equals(Product p)
