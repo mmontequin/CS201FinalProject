@@ -29,7 +29,7 @@ public class Objects {
 		array = new Object[size];
 	}
 	
-	//complicated/ in dept constructor
+	//complicated/ in depth constructor
 	public Objects(Object[] anArray, int s, int i)
 	{
 		size = s;
