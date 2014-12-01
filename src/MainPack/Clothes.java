@@ -9,9 +9,11 @@ package MainPack;
 
 public class Clothes extends Product{
 
+	//instance variables
 	private String type, size, color;
-	private double tax = 7.5;
+	//tax = 7.5;
 	
+	//default constructor
 	public Clothes()
 	{
 		super(0,0.0,-1);
@@ -20,6 +22,7 @@ public class Clothes extends Product{
 		color = "no color";
 	}
 	
+	//usual constructor
 	public Clothes(int b, double p, String t,Manufacturer m, String s, String c)
 	{
 		
@@ -30,36 +33,43 @@ public class Clothes extends Product{
 		color = c;
 	}
 	
+	//set the type
 	public void setType(String t)
 	{
 		type = t;
 	}
 	
+	//set the size
 	public void setSize(String s)
 	{
 		size = s;
 	}
 	
+	//set the color
 	public void setColor(String c)
 	{
 		color = c;
 	}
 	
+	//get the type
 	public String getType()
 	{
 		return type;
 	}
 	
+	//get the size
 	public String getSize()
 	{
 		return size;
 	}
 	
+	//get the color
 	public String getColor()
 	{
 		return color;
 	}
 	
+	//put everything in a string
 	public String toString()
 	{
 		return super.toString()
@@ -68,6 +78,7 @@ public class Clothes extends Product{
 				+ ", the color is " + color; 
 	}
 	
+	//see if one Clothes is equal to another
 	public boolean equals(Clothes c)
 	{
 		return super.equals(c)
