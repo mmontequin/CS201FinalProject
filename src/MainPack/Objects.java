@@ -228,7 +228,7 @@ public class Objects {
 		}
 	}
 
-	//low to high sort, by price
+	//low to high sort, by price; sort everything
 	public void sort(double lowToHigh)
 	{
 		Object aux;
@@ -249,16 +249,77 @@ public class Objects {
 			min = 999.9;
 		}
 	}
-	
-	//high to low sort, by price
-	public void sort(int HighToLow)
+
+	//low to high sort, by price; q 1 for food 2 for clothes
+	public void sort(double lowToHigh, int q)
 	{
 		Object aux;
-		int poz = 0;
-		double max = 0.0;
-		for(int i = 0; i < index - 1; i ++)
+		int poz = 0,x,y;
+		double min = 999.9;
+		
+		//choose either food or clothes (1 for food, something else for clothes)
+		sort();
+		
+		x = 0;
+		y = 0;
+		while( ((Product)array[y]).getBarCode() < 200)
+			y++;
+		
+		if(q == 1)
 		{
-			for(int j = i; j< index; j++)
+			y++;
+		}
+		else
+		{
+			x = y;
+			y = index;
+		}
+		
+		//sort them
+		for(int i = x; i < y - 1; i ++)
+		{
+			for(int j = i; j < y; j ++)
+				if(((Product)array[j]).getPrice() < min)
+				{
+					min = ((Product)array[j]).getPrice();
+					poz = j;
+				}
+			aux = array[i];
+			array[i] = array[poz];
+			array[poz] = aux;
+			min = 999.9;
+		}
+	}
+	
+	//high to low sort, by price; q 1 for food 2 for clothes
+	public void sort(int HighToLow, int q)
+	{
+		Object aux;
+		int poz = 0,x,y;
+		double max = 0.0;
+		
+		//choose either food or clothes (1 for food, something else for clothes)
+		sort();
+		
+		x = 0;
+		y = 0;
+		while( ((Product)array[y]).getBarCode() < 200)
+			y++;
+		
+		if(q == 1)
+		{
+			y++;
+		}
+		else
+		{
+			x = y;
+			y = index;
+		}
+		
+		//sort them
+		for(int i = x; i < y - 1; i ++)
+		{
+			for(int j = i; j< y; j++)
 				if(((Product)array[j]).getPrice() > max)
 				{
 					max = ((Product)array[j]).getPrice();
@@ -279,6 +340,43 @@ public class Objects {
 			if(b == ((Product)array[i]).getBarCode())
 				return array[i];
 		return array[i];
+	}
+	
+	//print food
+	public void printFood()
+	{
+		int x, y;
+		x = 0;
+		y = 0;
+		while( ((Product)array[y]).getBarCode() < 200)
+			y++;
+		
+		for(; x < y; x++)
+			System.out.println(((Food)array[x]).toString());
+	}
+	
+	//print clothes
+	public void printClothes()
+	{
+		int x, y;
+		x = 0;
+		y = 0;
+		while( ((Product)array[y]).getBarCode() < 200)
+			y++;
+		x = y;
+		y = index - 1;
+		
+		for(; x <= y; x++)
+			System.out.println(((Clothes)array[x]).toString());
+	}
+	
+	//print everything
+	public void printAll()
+	{
+		for(int i = 0; i <= index - 1; i++)
+			if(((Product)array[i]).getBarCode() < 200)
+				System.out.println(((Food)array[i]).toString());
+			else System.out.println(((Clothes)array[i]).toString());
 	}
 	
 	//put everything in a String

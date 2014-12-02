@@ -21,6 +21,8 @@ public class Application {
 		
 		reed.read(array);
 		
+		Menu menu = new Menu(array);
+		
 		
 		/*
 		for(int i = 0; i <= array.getIndex() - 1; i++)
@@ -29,13 +31,17 @@ public class Application {
 			else System.out.println(((Clothes)array.getObject(i)).toString());
 		*/
 		
-		array.sort(0);
+		//array.sort(0,2);
 		
+		/*
 		for(int i = 0; i <= array.getIndex() - 1; i++)
 			if(((Product)array.getObject(i)).getBarCode() < 200)
 				System.out.println(((Food)array.getObject(i)).toString());
 			else System.out.println(((Clothes)array.getObject(i)).toString());
+		*/
 		
+		//array.printFood();
+		//array.printClothes();
 		
 	}
 }
