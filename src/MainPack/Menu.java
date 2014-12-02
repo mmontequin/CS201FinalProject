@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class Menu{
 	
 	private Objects arr;
-	private int counter=0;
+	private int counter=0,idiot = 0;
 	int[] bcArr = new int[200];
 	double total=0, tax=0;
 	
@@ -36,7 +36,14 @@ public class Menu{
 		
 		if(x == 1)
 			adminCheck();
-		else costumerPannel();
+		else if(x == 2)
+			costumerPannel();
+		else
+		{
+			idiot++;
+			System.out.println("You have not entered neither 1 nor 2, so I am going to suppose you are a customer. \nHowever, if you are not, you can always go back. #SoryNotSory (Friendly advice: Don't do that again. Stuff like this doesn't fly with me)");
+			costumerPannel();
+		}
 	}
 	
 	//admin
@@ -136,9 +143,15 @@ public class Menu{
 	    {
 	    	listAll();
 	    }
-	    else//go back
+	    else if(x == 4)//go back
 	    {
 	    	this.start();
+	    }
+	    else
+	    {
+	    	idiot++;
+	    	System.out.println("Sneaky, you tried to break the code. \nNormally I would send you back, but your hand might have just slipped, so I am going to give you another chance :D");
+	    	this.costumerPannel();
 	    }
 	}
 	
@@ -146,9 +159,10 @@ public class Menu{
 	{
 		//list food
 		arr.printFood();
+    	arr.sortBC();
 		//1. sort
-		System.out.println("1. Sort: Low to High");
-		System.out.println("2. Sort: High to Low");
+		System.out.println("1. Sort, by price: Low to High");
+		System.out.println("2. Sort, by price: High to Low");
 		//2. proceed to checkout
 		System.out.println("3. Proceed to checkout");
 		//3. go back
@@ -159,21 +173,27 @@ public class Menu{
 	    
 	    if(x == 1)//sort l - H
 	    {
-	    	arr.sort(3.2, 1);
+	    	arr.sortLH(3.2, 1);
 	    	listFood();
 	    }
 	    else if (x == 2)// sort H - l
 	    {
-	    	arr.sort(1,1);
+	    	arr.sortHL(1,1);
 	    	listFood();
 	    }
 	    else if(x == 3)//checkout
 	    {
 	    	checkout1();
 	    }
-	    else
+	    else if(x == 4)
 	    {
 	    	costumerPannel();
+	    }
+	    else
+	    {
+	    	idiot++;
+	    	System.out.println("Not again! #IdiotProof \nI dare you to try again!");
+	    	this.listFood();
 	    }
 		
 	}
@@ -182,6 +202,7 @@ public class Menu{
 	{
 		//list clothes
 		arr.printClothes();
+    	arr.sortBC();
 		//1.sort
 		System.out.println("1. Sort: Low to High");
 		System.out.println("2. Sort: High to Low");
@@ -195,27 +216,69 @@ public class Menu{
 	    
 	    if(x == 1)//sort l - H
 	    {
-	    	arr.sort(3.2, 2);
+	    	arr.sortLH(3.2, 2);
 	    	listClothes();
 	    }
 	    else if(x == 2)//sort H - l
 	    {
-	    	arr.sort(1, 2);
+	    	arr.sortHL(1, 2);
 	    	listClothes();
 	    }
 	    else if(x == 3)//checkout
 	    {
 	    	checkout1();
 	    }
-	    else
+	    else if(x == 4)
 	    {
 	    	costumerPannel();
+	    }
+	    else
+	    {
+	    	idiot++;
+	    	System.out.println("Not again! #IdiotProof \nI dare you to try again!");
+	    	this.listClothes();
 	    }
 	}
 	
 	public void listAll()
 	{
-//REMEMBER TO ADD HERE
+		arr.printAll();
+    	arr.sortBC();
+		//1.sort
+		System.out.println("1. Sort: Low to High");
+		System.out.println("2. Sort: High to Low");
+		//3.proceed to checkout
+		System.out.println("3. Proceed to checkout");
+		//4.go back
+		System.out.println("4. Go back");
+		
+		Scanner in = new Scanner(System.in);
+	    int x = in.nextInt();
+	    
+	    if(x == 1)//sort l - H
+	    {
+	    	arr.sortAllLH();
+	    	listAll();
+	    }
+	    else if(x == 2)//sort H - l
+	    {
+	    	arr.sortAllHL();
+	    	listAll();
+	    }
+	    else if(x == 3)//checkout
+	    {
+	    	checkout1();
+	    }
+	    else if(x == 4)
+	    {
+	    	costumerPannel();
+	    }
+	    else
+	    {
+	    	idiot++;
+	    	System.out.println("Not again! #IdiotProof \nI dare you to try again!");
+	    	this.listClothes();
+	    }
 	}
 	
 	public void checkout1()
@@ -242,24 +305,38 @@ public class Menu{
 	{
 		Object x;
 		//you have chose the following
-		System.out.println("You have chose the following products:");
+		System.out.println("\nYou have chose the following products:");
 		//output the thing
 	    for(int i = 0; i < counter; i++)
 	    {
 	    	x = arr.search(bcArr[i]);
-	    	System.out.println(x.toString());
-	    	total = total + ((Product)x).getPrice();
-	    	tax = tax + ((Product)x).getTax() * ((Product)x).getPrice() / 100;
+	    	if(((Product)x).getBarCode() == 0)
+	    	{
+	    		idiot++;
+	    		System.out.println("The barcode " + bcArr[i] + " you have entered is not valid, so we will not include this product \n ***I'm watching you...");
+	    	}
+	    	else
+	    	{
+		    	System.out.println(x.toString());
+		    	total = total + ((Product)x).getPrice();
+		    	tax = tax + ((Product)x).getTax() * ((Product)x).getPrice() / 100;
+	    	}
 	    }
 		//your total is:
-	    System.out.println("Your Total is: " + total);
+	    System.out.println("\nYour Total is: " + total);
 		//your tax is:
 	    System.out.println("The tax is: " + tax);
 		//your grand total is:
 	    System.out.println("The Grand Total is: " + (total + tax));
 		
 		//thanks for shopping with us
-	    System.out.println("Thank you for shopping with us!");
+	    System.out.println("\nThank you for shopping with us!");
+	    if(idiot > 0)
+	    {
+	    	System.out.println("*************************************************************************");
+	    	System.out.println("PS: You were an idiot " + idiot + " times, but you have accomplised nothing... ntz ntz ntz...\nDon't you get it? My code is (a) ROCK! You cannot mess with it! \n\n The entertainment was brough to you by\n  \"a poor little coder\" who just needed a break from all the stupid error messages...\n   Love you! Peace!");
+	
+	    }
 	}
 	
 }

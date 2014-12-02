@@ -101,7 +101,7 @@ public class Objects {
 	}
 	
 	//insert an Object at a specific position
-	public void insert(int pos, Objects obj)
+	public void insert(int pos, Object obj)
 	{
 		int i;
 		if(!this.isFull())
@@ -206,7 +206,7 @@ public class Objects {
 	}
 	
 	//low to high sort, by barcode
-	public void sort()
+	public void sortBC()
 	{
 		Object aux;
 		int min = 999, poz = 0;
@@ -229,7 +229,7 @@ public class Objects {
 	}
 
 	//low to high sort, by price; sort everything
-	public void sort(double lowToHigh)
+	public void sortAllLH()
 	{
 		Object aux;
 		int poz = 0;
@@ -249,16 +249,38 @@ public class Objects {
 			min = 999.9;
 		}
 	}
+	
+	//high to low sort, by price; sort everything
+	public void sortAllHL()
+	{
+		Object aux;
+		int poz = 0;
+		double max = 0;
+		
+		for(int i = 0; i < index - 1; i ++)
+		{
+			for(int j = i; j < index; j ++)
+				if(((Product)array[j]).getPrice() > max)
+				{
+					max = ((Product)array[j]).getPrice();
+					poz = j;
+				}
+			aux = array[i];
+			array[i] = array[poz];
+			array[poz] = aux;
+			max = 0;
+		}
+	}
 
 	//low to high sort, by price; q 1 for food 2 for clothes
-	public void sort(double lowToHigh, int q)
+	public void sortLH(double lowToHigh, int q)
 	{
 		Object aux;
 		int poz = 0,x,y;
 		double min = 999.9;
 		
 		//choose either food or clothes (1 for food, something else for clothes)
-		sort();
+		sortBC();
 		
 		x = 0;
 		y = 0;
@@ -292,14 +314,14 @@ public class Objects {
 	}
 	
 	//high to low sort, by price; q 1 for food 2 for clothes
-	public void sort(int HighToLow, int q)
+	public void sortHL(int HighToLow, int q)
 	{
 		Object aux;
 		int poz = 0,x,y;
 		double max = 0.0;
 		
 		//choose either food or clothes (1 for food, something else for clothes)
-		sort();
+		sortBC();
 		
 		x = 0;
 		y = 0;
@@ -308,7 +330,7 @@ public class Objects {
 		
 		if(q == 1)
 		{
-			y++;
+			//y++;
 		}
 		else
 		{
@@ -319,7 +341,7 @@ public class Objects {
 		//sort them
 		for(int i = x; i < y - 1; i ++)
 		{
-			for(int j = i; j< y; j++)
+			for(int j = i; j < y; j++)
 				if(((Product)array[j]).getPrice() > max)
 				{
 					max = ((Product)array[j]).getPrice();
@@ -339,7 +361,8 @@ public class Objects {
 		for(i = 0; i < index; i ++)
 			if(b == ((Product)array[i]).getBarCode())
 				return array[i];
-		return array[i];
+	
+		return array[197];
 	}
 	
 	//print food

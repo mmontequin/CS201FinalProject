@@ -21,6 +21,12 @@ public class Application {
 		
 		reed.read(array);
 		
+		Product p = new Product();
+		array.insert(197, p);
+		array.setIndex(array.getIndex() - 1);
+		
+		//System.out.println(array.getObject(array.getIndex() - 1).toString());
+		
 		Menu menu = new Menu(array);
 		
 		
