@@ -14,27 +14,27 @@ public class Application {
 
 	public static void main(String args[]) throws FileNotFoundException, IOException
 	{
-		
-		
+	
+		//instantiate objects array
 		Objects array = new Objects(200);
+		
+		//instantiate the read file
 		ReadWrite reed = new ReadWrite();
 		
+		//read and put it into the array
 		reed.read(array);
 		
+		//assign the counters
+		array.setFoodCounter(reed.getFoodCounter() - 1);
+		array.setClothesCounter(reed.getClothesCounter() - 1);
 		
-		/*
-		for(int i = 0; i <= array.getIndex() - 1; i++)
-			if(((Product)array.getObject(i)).getBarCode() < 200)
-				System.out.println(((Food)array.getObject(i)).toString());
-			else System.out.println(((Clothes)array.getObject(i)).toString());
-		*/
+		//default product for handling errors
+		Product p = new Product();
+		array.insert(197, p);
+		array.setIndex(array.getIndex() - 1);
 		
-		array.sort(0);
-		
-		for(int i = 0; i <= array.getIndex() - 1; i++)
-			if(((Product)array.getObject(i)).getBarCode() < 200)
-				System.out.println(((Food)array.getObject(i)).toString());
-			else System.out.println(((Clothes)array.getObject(i)).toString());
+		//instantiate the menu
+		Menu menu = new Menu(array);
 		
 		
 	}
