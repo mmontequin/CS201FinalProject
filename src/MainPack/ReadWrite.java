@@ -89,5 +89,23 @@ public class ReadWrite {
 		}
 	}
 
+	public int getFoodCounter()
+	{
+		return foodCounter;
+	}
 	
+	public int getClothesCounter()
+	{
+		return clothesCounter;
+	}
+	
+	public void setFoodCounter(int f)
+	{
+		foodCounter = f;
+	}
+	
+	public void setClothesCounter(int c)
+	{
+		clothesCounter = c;
+	}
 }

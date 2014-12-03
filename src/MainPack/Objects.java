@@ -11,7 +11,7 @@ public class Objects {
 	
 	//instance variables
 	private Object array[];
-	private int MAX_SIZE = 200, index,size,pointer = 0;
+	private int MAX_SIZE = 200, index,size,pointer = 0, foodCounter, clothesCounter;
 
 	//default constructor
 	public Objects()
@@ -61,6 +61,18 @@ public class Objects {
 		pointer = p;
 	}
 	
+	//set the food counter
+	public void setFoodCounter(int f)
+	{
+		foodCounter = f;
+	}
+	
+	//set the clothes counter
+	public void setClothesCounter(int c)
+	{
+		clothesCounter = c;
+	}
+	
 	//get the array
 	public Object[] getArray()
 	{
@@ -90,6 +102,17 @@ public class Objects {
 		return array[pos];
 	}
 	
+	//get food counter
+	public int getFoodCounter()
+	{
+		return foodCounter;
+	}
+	
+	//get clothes counter
+	public int getClothesCounter()
+	{
+		return clothesCounter;
+	}
 	//add an Object to the end of the array
 	public void add(Object obj)
 	{
@@ -123,7 +146,7 @@ public class Objects {
 	}
 	
 	//delete a certain Object
-	public void delete(Objects obj)
+	public void delete(Object obj)
 	{
 		int i = this.isThere(obj);
 		if(i >= 0)
@@ -131,7 +154,7 @@ public class Objects {
 	}
 	
 	//check if there is a certain Object
-	public int isThere(Objects obj)
+	public int isThere(Object obj)
 	{
 		int i;
 		for(i=0; i<index; i++)
