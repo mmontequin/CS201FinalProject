@@ -12,6 +12,7 @@ import java.util.Scanner;
 public class Menu{
 	
 	private Objects arr;
+	private ReadWrite reader;
 	private int counter=0,idiot = 0,x;
 	int[] bcArr = new int[200];
 	double total=0, tax=0;
@@ -243,11 +244,17 @@ public class Menu{
 //need to do add	
 	public void add()
 	{
-		//insert the data in the folloing format:...
-		//manufacturer format:...
-		//**get the data, add it...
-		//you have added the folloing product:...
-		//go back to pannel
+		System.out.println("Insert data in the following format:");
+		System.out.println("category,name/type,price,Manufacturer,quality/size,color");
+		System.out.println("Category: 0 for food, 1 for clothes");
+		System.out.println("Manufacturer formatted as 'company;country;date'");
+		// lineIn: string
+		// in: Scanner object
+		lineIn = in.nextLine();
+		arr.add(reader.asign(lineIn));
+		System.out.println("You have added the following product:");
+		((Product) (arr.getObject(arr.getIndex() - 1))).toString();
+		pannel();
 	}
 	
 	public void delete()
@@ -310,6 +317,7 @@ public class Menu{
 	    pannel();
 	}
 //need to update
+	/*
 	public void update()
 	{
 		Object obj;
@@ -434,6 +442,312 @@ public class Menu{
 		//etc
 		//**do the stuff to update it
 	}	
+	*/
+
+	public void update()
+	{
+		System.out.println("Enter the barcode of the product you want to update:");
+		lineIn = in.nextLine();
+		int barCode = parseInt(lineIn);
+		// lineIn: string
+		// in: Scanner object
+		if (arr.search(barCode) instanceof Product) {
+			Product result = (Product) arr.search(barCode);
+			updateProduct(result);
+			pannel();
+		}
+		else if (barCode == 0) {
+			pannel();
+		}
+		else {
+			System.out.println("An error has occurred.");
+			update();
+		}
+	}	
+	
+	public void updateProduct(Product aProduct) {
+		if (aProduct instanceof Food) {
+			System.out.println("Select what you wish to update:");
+			System.out.println("1) Product name");
+			System.out.println("2) Price");
+			System.out.println("3) Manufacturer");
+			System.out.println("4) Quality");
+			System.out.println("0) Done editing");
+			lineIn = in.nextLine();
+			selection = parseInt(lineIn);
+			// lineIn: string
+			// in: Scanner objct
+			// selection: int
+			switch (selection) {
+			case 0:
+				break;
+			case 1:
+				System.out.println("Enter new product name:");
+				lineIn = in.nextLine();
+				((Food) aProduct).setName(lineIn);
+				updateProduct(aProduct);
+				break;
+			case 2:
+				System.out.println("Enter new price:");
+				lineIn = in.nextLine();
+				aProduct.setPrice(parseDouble(lineIn));
+				updateProduct(aProduct);
+				break;
+			case 3:
+				System.out.println("Enter new manufacturer:");
+				System.out.println("Valid format: company;country;MM/DD/YYYY");
+				lineIn = in.nextLine();
+				aProduct.setManufacturer(reader.splitManufacturer(lineIn));
+				updateProduct(aProduct);
+				break;
+			case 4:
+				System.out.println("Enter new quality:");
+				lineIn = in.nextLine();
+				((Food) aProduct).setQuality(parseInt(lineIn));
+				updateProduct(aProduct);
+				break;
+			default:
+				System.out.println("An error has occurred");
+				updateProduct(aProduct);
+				break;
+			}	
+		}
+		else if (aProduct instanceof Clothes) {
+			System.out.println("Select what you wish to update:");
+			System.out.println("1) Type");
+			System.out.println("2) Price");
+			System.out.println("3) Manufacturer");
+			System.out.println("4) Size");
+			System.out.println("5) Color");
+			System.out.println("0) Done editing");
+			lineIn = in.nextLine();
+			selection = parseInt(lineIn);
+			switch (selection) {
+			case 0:
+				break;
+			case 1:
+				System.out.println("Enter new clothes type:");
+				lineIn = in.nextLine();
+				((Clothes) aProduct).setType(lineIn);
+				updateProduct(aProduct);
+				break;
+			case 2:
+				System.out.println("Enter new price:");
+				lineIn = in.nextLine();
+				aProduct.setPrice(parseDouble(lineIn));
+				updateProduct(aProduct);
+				break;
+			case 3:
+				System.out.println("Enter new manufacturer:");
+				System.out.println("Valid format: company;country;MM/DD/YYYY");
+				lineIn = in.nextLine();
+				aProduct.setManufacturer(reader.splitManufacturer(lineIn));
+				updateProduct(aProduct);
+				break;
+			case 4:
+				System.out.println("Enter new size:");
+				lineIn = in.nextLine();
+				((Clothes) aProduct).setSize(lineIn);
+				updateProduct(aProduct);
+				break;
+			case 5:
+				System.out.println("Enter new quality:");
+				lineIn = in.nextLine();
+				((Clothes) aProduct).setColor(lineIn);
+				updateProduct(aProduct);
+				break;
+			default:
+				System.out.println("An error has occurred");
+				updateProduct(aProduct);
+				break;
+			}
+		}
+	}
+	
+	//costumer
+	public void costumerPannel()
+	{
+		//1.show food products
+		System.out.println("1. Show food products");
+		//2. show clothes products
+		System.out.println("2. Show clothes products");
+		//3. show everything
+		System.out.println("3. Show all the products");
+		//4. go back
+		System.out.println("4. Go back");
+		
+		Scanner in = new Scanner(System.in);
+	    x = in.nextInt();
+	    
+	    if(x == 1)//print food
+	    {
+	    	listFood();
+	    }
+	    else if (x == 2)//print clothes
+	    {
+	    	listClothes();
+	    }
+	    else if (x == 3)//print everything
+	    {
+	    	listAll();
+	    }
+	    else if(x == 4)//go back
+	    {
+	    	this.start();
+	    }
+	    else
+	    {
+	    	idiot++;
+	    	System.out.println("Sneaky, you tried to break the code. \nNormally I would send you back, but your hand might have just slipped, so I am going to give you another chance :D");
+	    	this.costumerPannel();
+	    }
+	}
+	
+	public void listFood()
+	{
+		//list food
+		arr.printFood();
+    	arr.sortBC();
+		//1. sort
+		System.out.println("1. Sort, by price: Low to High");
+		System.out.println("2. Sort, by price: High to Low");
+		//2. proceed to checkout
+		System.out.println("3. Proceed to checkout");
+		//3. go back
+		System.out.println("4. Go back");
+		
+		Scanner in = new Scanner(System.in);
+	    x = in.nextInt();
+	    
+	    if(x == 1)//sort l - H
+	    {
+	    	arr.sortLH(3.2, 1);
+	    	listFood();
+	    }
+	    else if (x == 2)// sort H - l
+	    {
+	    	arr.sortHL(1,1);
+	    	listFood();
+	    }
+	    else if(x == 3)//checkout
+	    {
+	    	checkout1();
+	    }
+	    else if(x == 4)
+	    {
+	    	costumerPannel();
+	    }
+	    else
+	    {
+	    	idiot++;
+	    	System.out.println("Not again! #IdiotProof \nI dare you to try again!");
+	    	this.listFood();
+	    }
+		
+	}
+	
+	public void listClothes()
+	{
+		//list clothes
+		arr.printClothes();
+    	arr.sortBC();
+		//1.sort
+		System.out.println("1. Sort: Low to High");
+		System.out.println("2. Sort: High to Low");
+		//2.proceed to checkout
+		System.out.println("3. Proceed to checkout");
+		//3.go back
+		System.out.println("4. Go back");
+		
+		Scanner in = new Scanner(System.in);
+	    x = in.nextInt();
+	    
+	    if(x == 1)//sort l - H
+	    {
+	    	arr.sortLH(3.2, 2);
+	    	listClothes();
+	    }
+	    else if(x == 2)//sort H - l
+	    {
+	    	arr.sortHL(1, 2);
+	    	listClothes();
+	    }
+	    else if(x == 3)//checkout
+	    {
+	    	checkout1();
+	    }
+	    else if(x == 4)
+	    {
+	    	costumerPannel();
+	    }
+	    else
+	    {
+	    	idiot++;
+	    	System.out.println("Not again! #IdiotProof \nI dare you to try again!");
+	    	this.listClothes();
+	    }
+	}
+	
+	public void listAll()
+	{
+		arr.printAll();
+    	arr.sortBC();
+		//1.sort
+		System.out.println("1. Sort: Low to High");
+		System.out.println("2. Sort: High to Low");
+		//3.proceed to checkout
+		System.out.println("3. Proceed to checkout");
+		//4.go back
+		System.out.println("4. Go back");
+		
+		Scanner in = new Scanner(System.in);
+	    x = in.nextInt();
+	    
+	    if(x == 1)//sort l - H
+	    {
+	    	arr.sortAllLH();
+	    	listAll();
+	    }
+	    else if(x == 2)//sort H - l
+	    {
+	    	arr.sortAllHL();
+	    	listAll();
+	    }
+	    else if(x == 3)//checkout
+	    {
+	    	checkout1();
+	    }
+	    else if(x == 4)
+	    {
+	    	costumerPannel();
+	    }
+	    else
+	    {
+	    	idiot++;
+	    	System.out.println("Not again! #IdiotProof \nI dare you to try again!");
+	    	this.listClothes();
+	    }
+	}
+	
+	public void checkout1()
+	{
+		//enter the barcodes of the products;
+		System.out.println("Enter the barcodes for the products, separated by space");
+		//enter -1 when you are done
+		System.out.println("Enter -1 when you're done");
+		
+		Scanner in = new Scanner(System.in);
+	    x = in.nextInt();
+	    
+	    while(x != -1)
+	    {
+	    	bcArr[counter] = x;
+	    	counter++;
+	    	x = in.nextInt();
+	    }
+	    
+	    checkout2();
+	}
 	
 	//costumer
 	public void costumerPannel()
@@ -656,6 +970,49 @@ public class Menu{
 	    	System.out.println("PS: You were an idiot " + idiot + " times, but you have accomplised nothing... ntz ntz ntz...\nDon't you get it? My code is (a) ROCK! You cannot mess with it! \n\n The entertainment was brough to you by\n  \"a poor little coder\" who just needed a break from all the stupid error messages...\n   Love you! Peace!");
 	
 	    }
+	}
+
+	// Class methods
+	public static boolean isValidInt(String aString) {
+		boolean isValid = false;
+		try {
+			Integer.parseInt(aString);
+			isValid = true;
+		}
+		catch (NumberFormatException exception) {
+		}
+		return isValid;
+	}
+	
+	public static boolean isValidDouble(String aString) {
+		boolean isValid = false;
+		try {
+			Double.parseDouble(aString);
+			isValid = true;
+		}
+		catch (NumberFormatException exception) {
+		}
+		return isValid;
+	}
+	
+	public static int parseInt(String aString) {
+		if (isValidInt(aString) ==  true) {
+			return Integer.parseInt(aString);
+		}
+		else {
+			System.out.println("Error: entry must be an integer");
+			return 0;
+		}
+	}
+	
+	public static double parseDouble(String aString) {
+		if (isValidDouble(aString) ==  true) {
+			return Double.parseDouble(aString);
+		}
+		else {
+			System.out.println("Error: entry must be a double");
+			return 0;
+		}
 	}
 	
 }
