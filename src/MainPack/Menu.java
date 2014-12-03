@@ -12,6 +12,7 @@ import java.util.Scanner;
 public class Menu{
 	
 	private Objects arr;
+	private ReadWrite reader;
 	private int counter=0,idiot = 0,x;
 	int[] bcArr = new int[200];
 	double total=0, tax=0;
@@ -247,10 +248,12 @@ public class Menu{
 		System.out.println("category,name/type,price,Manufacturer,quality/size,color");
 		System.out.println("Category: 0 for food, 1 for clothes");
 		System.out.println("Manufacturer formatted as 'company;country;date'");
+		// lineIn: string
+		// in: Scanner object
 		lineIn = in.nextLine();
-		objArray.add(reader.asign(lineIn));
+		arr.add(reader.asign(lineIn));
 		System.out.println("You have added the following product:");
-		((Product) (objArray.getObject(objArray.getIndex() - 1))).toString();
+		((Product) (arr.getObject(arr.getIndex() - 1))).toString();
 		pannel();
 	}
 	
@@ -446,8 +449,10 @@ public class Menu{
 		System.out.println("Enter the barcode of the product you want to update:");
 		lineIn = in.nextLine();
 		int barCode = parseInt(lineIn);
-		if (objArray.search(barCode) instanceof Product) {
-			Product result = (Product) objArray.search(barCode);
+		// lineIn: string
+		// in: Scanner object
+		if (arr.search(barCode) instanceof Product) {
+			Product result = (Product) arr.search(barCode);
 			updateProduct(result);
 			pannel();
 		}
@@ -470,6 +475,9 @@ public class Menu{
 			System.out.println("0) Done editing");
 			lineIn = in.nextLine();
 			selection = parseInt(lineIn);
+			// lineIn: string
+			// in: Scanner objct
+			// selection: int
 			switch (selection) {
 			case 0:
 				break;
